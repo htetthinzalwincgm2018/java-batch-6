@@ -2,13 +2,12 @@ package com.cgm.crud;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
-    
-    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
-    public String showRegister() {
-        return "register";
+
+    @RequestMapping("/")
+    public String viewHome() {
+        return "home";
     }
 }
