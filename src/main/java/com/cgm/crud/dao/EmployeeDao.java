@@ -7,11 +7,11 @@ import javax.transaction.Transactional;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.cgm.crud.entity.Employee;
 
-@Component
+@Repository
 public class EmployeeDao {
 
     @Autowired
