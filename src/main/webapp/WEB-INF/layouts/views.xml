@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+    "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="register" extends="template">  
+        <put-attribute name="title" value="Add - Employee" />  
+        <put-attribute name="body" value="/WEB-INF/pages/register.jsp" />  
+    </definition>
+
+    <definition name="employeeReport" extends="template">  
+        <put-attribute name="title" value="Add - Employee" />  
+        <put-attribute name="body" value="/WEB-INF/pages/employeeReport.jsp" />  
+    </definition>
+
+    <definition name="editEmployee" extends="template">  
+        <put-attribute name="title" value="Edit - Employee" />  
+        <put-attribute name="body" value="/WEB-INF/pages/editEmployee.jsp" />  
+    </definition>
+</tiles-definitions>
