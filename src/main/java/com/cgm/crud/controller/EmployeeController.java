@@ -26,18 +26,25 @@ public class EmployeeController {
     private EmployeeServices employeeServices;
 
     @RequestMapping(value = { "/addEmployee" }, method = RequestMethod.GET)
-    public String showRegister() {
+    public String showRegister(Model model) {
+        CreateEmpForm createEmpForm = new CreateEmpForm();
+        model.addAttribute("createEmpForm", createEmpForm);
         return "register";
     }
 
     @RequestMapping(value = { "/insertEmployee" }, method = RequestMethod.POST)
-    public String insertEmployee(@ModelAttribute("insertEmployee") @Valid CreateEmpForm emp, BindingResult result) {
+    public ModelAndView insertEmployee(@Valid @ModelAttribute("createEmpForm") CreateEmpForm emp,
+            BindingResult result) {
+
+        ModelAndView mv = new ModelAndView("register");
         if (result.hasErrors()) {
-            System.out.println("----error---");
-            return "register";
+            System.out.println("----validation error---");
+            return mv;
         }
+        System.out.println("----no validation error---");
         employeeServices.addEmp(emp);
-        return "redirect:/addEmployee";
+        ModelAndView mvr = new ModelAndView("redirect:/employeeReport");
+        return mvr;
     }
 
     // lode employee data
