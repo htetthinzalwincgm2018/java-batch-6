@@ -1,8 +1,11 @@
 package com.cgm.crud.dao.impl;
 
 import java.util.List;
+
 import javax.transaction.Transactional;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -48,5 +51,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public void deleteEmp(int id) {
         hiberneteTemplate.delete(hiberneteTemplate.load(Employee.class, id));
+    }
+
+    @SuppressWarnings("rawtypes")
+    public Employee findByEmail(String email) {
+
+        String userQuery = "SELECT e FROM Employee e WHERE e.email = :email";
+        Query query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
+        query.setParameter("email", email);
+        Employee emp = (Employee) query.uniqueResult();
+
+        return emp;
     }
 }

@@ -21,4 +21,7 @@ public interface EmployeeServices {
 
     // delete employee
     public void deleteEmployee(int id);
+
+    // get employee by email
+    public EmployeeDto findByEmail(String email);
 }

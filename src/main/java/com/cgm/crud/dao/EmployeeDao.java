@@ -1,6 +1,7 @@
 package com.cgm.crud.dao;
 
 import java.util.List;
+
 import com.cgm.crud.entity.Employee;
 
 public interface EmployeeDao {
@@ -18,4 +19,7 @@ public interface EmployeeDao {
 
     // delete employee
     public void deleteEmp(int id);
+    
+    // get employee by email
+    public Employee findByEmail(String email);
 }

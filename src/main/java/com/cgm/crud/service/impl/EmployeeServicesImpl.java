@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,11 +20,17 @@ public class EmployeeServicesImpl implements EmployeeServices {
     @Autowired
     private EmployeeDao employeeDao;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     // add employee
     @Override
     public void addEmp(CreateEmpForm empFrom) {
         Employee emp = new Employee();
         emp.setName(empFrom.getName());
+        emp.setEmail(empFrom.getEmail());
+        emp.setPassword(passwordEncoder.encode(empFrom.getPassword()));
+        emp.setType(empFrom.getType());
         emp.setDepartment(empFrom.getDepartment());
         emp.setAddress(empFrom.getAddress());
         emp.setSalary(empFrom.getSalary());
@@ -40,6 +47,7 @@ public class EmployeeServicesImpl implements EmployeeServices {
             EmployeeDto empDto = new EmployeeDto(emp);
             empDto.setId(emp.getId());
             empDto.setName(emp.getName());
+            empDto.setEmail(emp.getEmail());
             empDto.setDepartment(emp.getDepartment());
             empDto.setAddress(emp.getAddress());
             empDto.setSalary(emp.getSalary());
@@ -66,5 +74,17 @@ public class EmployeeServicesImpl implements EmployeeServices {
     @Override
     public void deleteEmployee(int id) {
         employeeDao.deleteEmp(id);
+    }
+
+    // get employee by email
+    @Override
+    public EmployeeDto findByEmail(String email) {
+        Employee emp = employeeDao.findByEmail(email);
+
+        if (emp == null) {
+            return null;
+        }
+        EmployeeDto employeeDto = new EmployeeDto(emp);
+        return employeeDto;
     }
 }

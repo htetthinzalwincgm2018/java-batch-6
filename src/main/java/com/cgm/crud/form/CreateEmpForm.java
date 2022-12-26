@@ -17,6 +17,15 @@ public class CreateEmpForm {
 
     @NotEmpty(message = "Name cannot be empty")
     private String name;
+    
+    @NotEmpty(message = "Name cannot be empty")
+    private String email;
+    
+    @NotEmpty
+    private String password;
+    
+    @NotEmpty
+    private String type;
 
     @NotEmpty
     private String department;
@@ -35,6 +44,9 @@ public class CreateEmpForm {
 
     public CreateEmpForm(Employee emp) {
         this.name = emp.getName();
+        this.email = emp.getEmail();
+        this.password = emp.getPassword();
+        this.type = emp.getType();
         this.department = emp.getDepartment();
         this.address = emp.getAddress();
         this.salary = emp.getSalary();

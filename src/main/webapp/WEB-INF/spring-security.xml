@@ -17,12 +17,8 @@
         <access-denied-handler error-page="/error" />
     </http>
     <authentication-manager>
-        <authentication-provider>
+        <authentication-provider user-service-ref="myUserDetailsService">
             <password-encoder ref="bCryptPasswordEncoder" />
-            <user-service>
-                <user name="user" password="$2a$10$e59rGaFvpijWXLh03j0aZOzBYQNrIRIjlB8sGwLvBL35fecblsW1m" authorities="ROLE_USER" />
-                <user name="admin" password="$2a$10$e59rGaFvpijWXLh03j0aZOzBYQNrIRIjlB8sGwLvBL35fecblsW1m" authorities="ROLE_ADMIN" />
-            </user-service>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>  

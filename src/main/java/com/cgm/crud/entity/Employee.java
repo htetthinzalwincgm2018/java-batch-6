@@ -18,6 +18,9 @@ public class Employee {
     private int id;
 
     private String name;
+    private String email;
+    private String password;
+    private String type;
     private String department;
     private String address;
     private int salary;
