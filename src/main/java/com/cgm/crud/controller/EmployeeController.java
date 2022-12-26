@@ -42,6 +42,7 @@ public class EmployeeController {
             return mv;
         }
         System.out.println("----no validation error---");
+        // save data to database
         employeeServices.addEmp(emp);
         ModelAndView mvr = new ModelAndView("redirect:/employeeReport");
         return mvr;
@@ -51,7 +52,10 @@ public class EmployeeController {
     @GetMapping("employeeReport")
     public ModelAndView lodeEmployee() {
         ModelAndView report = new ModelAndView("employeeReport");
+
+        // get data from database
         List<EmployeeDto> emp = employeeServices.getAllEmp();
+
         report.addObject("employee", emp);
         report.addObject("title", "Employee Report");
 

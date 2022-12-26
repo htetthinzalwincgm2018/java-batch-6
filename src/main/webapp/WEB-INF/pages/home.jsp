@@ -8,11 +8,11 @@
 
   <div class="container mt-3">
     <div>
-      <a href="employeeReport" class="btn btn-primary">Login</a>
+      <a href="login" class="btn btn-primary">Login</a>
     </div>
     <br>
     <div>
-      <a href="employeeReport" class="btn btn-primary">Password Reset</a>
+      <a href="passwordReset" class="btn btn-primary">Password Reset</a>
     </div>
     <br>
     <div>

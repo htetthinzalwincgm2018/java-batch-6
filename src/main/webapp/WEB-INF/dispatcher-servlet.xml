@@ -102,5 +102,8 @@
         <property name="sessionFactory" ref="factory"></property>
     </bean>
 
+    <bean id="bCryptPasswordEncoder"
+        class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+    </bean>
 </beans>
   
