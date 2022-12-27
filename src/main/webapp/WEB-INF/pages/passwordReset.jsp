@@ -9,11 +9,11 @@
 </head>
 <body>
   <h3>Password Reset Page</h3>
-  <form:form action="login" method="post">
-    Enter UserName: <input type="text" name="username" />
+  <form:form action="send" method="post">
+    Enter Email: <input type="text" name="email" />
     <br />
     <br />
-    <input type="submit" value="Login" />
+    <input type="submit" value="Send" />
   </form:form>
 </body>
 </html>
