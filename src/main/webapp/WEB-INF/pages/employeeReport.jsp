@@ -4,14 +4,15 @@
 
 <div class="container mt-3">
   <h1>All Employee</h1>
-  <a href="addEmployee" class="btn btn-primary"> Add Employee </a>
-  <div class="row">
+  <a href="addEmployee" class="btn btn-primary mb-3"> Add Employee </a>
 
+  <div class="row">
     <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Name</th>
+          <th scope="col">Email</th>
           <th scope="col">Department</th>
           <th scope="col">Salary</th>
           <th scope="col">Address</th>
@@ -24,6 +25,7 @@
           <tr>
             <td class="table-plus">${emp.id}</td>
             <td>${emp.name}</td>
+            <td>${emp.email}</td>
             <td>${emp.department}</td>
             <td>${emp.salary}</td>
             <td>${emp.address}</td>

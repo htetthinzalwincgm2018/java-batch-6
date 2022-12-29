@@ -18,4 +18,14 @@
         <put-attribute name="title" value="Edit - Employee" />  
         <put-attribute name="body" value="/WEB-INF/pages/editEmployee.jsp" />  
     </definition>
+
+    <definition name="login" extends="template">  
+        <put-attribute name="title" value="Login" />  
+        <put-attribute name="body" value="/WEB-INF/pages/login.jsp" />  
+    </definition>
+
+    <definition name="passwordReset" extends="template">  
+        <put-attribute name="title" value="Password Reset" />  
+        <put-attribute name="body" value="/WEB-INF/pages/passwordReset.jsp" />  
+    </definition>
 </tiles-definitions>

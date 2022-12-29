@@ -19,10 +19,11 @@
     <context:component-scan
         base-package="com.cgm.crud"></context:component-scan>
 
-    <mvc:annotation-driven></mvc:annotation-driven>
-    <mvc:resources mapping="/resources/**"
-        location="/resources/" />
+    <context:property-placeholder
+        location="classpath:mail.properties" />
 
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:resources mapping="/resources/**" location="/resources/" />
 
     <!-- View Resolver -->
     <bean id="viewResolver"
@@ -84,6 +85,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.cgm.crud.entity.Employee</value>
+                <value>com.cgm.crud.entity.PasswordReset</value>
             </list>
         </property>
     </bean>
@@ -105,6 +107,21 @@
     <bean id="bCryptPasswordEncoder"
         class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
     </bean>
-    
+
+    <!-- MAIL CONFIG -->
+    <bean id="javaMailSender"
+        class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="username" value="${mail.username}" />
+        <property name="password" value="${mail.password}" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">${mail.protocol}</prop>
+                <prop key="mail.smtp.host">${mail.host}</prop>
+                <prop key="mail.smtp.port">${mail.port}</prop>
+                <prop key="mail.smtp.auth">true</prop>
+            </props>
+        </property>
+    </bean>
+
 </beans>
   

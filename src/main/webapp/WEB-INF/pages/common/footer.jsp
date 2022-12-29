@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ page import="java.time.LocalDate"%>
 
-<footer class="container">
+<footer class="container text-center">
   <div class="mt-3">Copyright &copy; ${LocalDate.now().year}
     CGM Golden Land Co.,Ltd.</div>
 </footer>

@@ -16,11 +16,6 @@ public class HomeController {
         return "login";
     }
 
-    @RequestMapping("/passwordReset")
-    public String viewPasswordReset() {
-        return "passwordReset";
-    }
-
     @RequestMapping(value = "/error")
     public String error() {
         return "denied";

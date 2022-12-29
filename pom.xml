@@ -19,6 +19,8 @@
 		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
 		<maven-war-plugin.version>3.3.2</maven-war-plugin.version>
 		<slf4j.version>1.7.36</slf4j.version>
+		<javamail.api.version>1.5.5</javamail.api.version>
+		<javamail.version>1.4.7</javamail.version>
 	</properties>
 
 	<dependencies>
@@ -166,6 +168,19 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>5.0.0.RELEASE</version>
+		</dependency>
+
+		<!-- Java Mail Dependency -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>${javamail.api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${javamail.version}</version>
 		</dependency>
 
 
