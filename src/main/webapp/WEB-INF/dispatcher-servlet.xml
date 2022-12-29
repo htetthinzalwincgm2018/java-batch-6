@@ -23,7 +23,8 @@
         location="classpath:mail.properties" />
 
     <mvc:annotation-driven></mvc:annotation-driven>
-    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/resources/**"
+        location="/resources/" />
 
     <!-- View Resolver -->
     <bean id="viewResolver"
@@ -123,5 +124,11 @@
         </property>
     </bean>
 
+    <!-- MESSAGE SOURCE -->
+    <bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames" value="classpath:messages" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
 </beans>
   

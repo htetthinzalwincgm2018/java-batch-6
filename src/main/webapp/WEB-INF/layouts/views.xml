@@ -28,4 +28,9 @@
         <put-attribute name="title" value="Password Reset" />  
         <put-attribute name="body" value="/WEB-INF/pages/passwordReset.jsp" />  
     </definition>
+    
+    <definition name="resetForm" extends="template">  
+        <put-attribute name="title" value="Reset Form" />  
+        <put-attribute name="body" value="/WEB-INF/pages/resetForm.jsp" />  
+    </definition>
 </tiles-definitions>

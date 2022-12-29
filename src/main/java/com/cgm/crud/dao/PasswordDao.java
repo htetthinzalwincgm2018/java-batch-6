@@ -8,4 +8,6 @@ public interface PasswordDao {
     void deleteToken(String email);
 
     void createToken(PasswordReset pswToken);
+
+    PasswordReset dbGetDataByToken(String token);
 }

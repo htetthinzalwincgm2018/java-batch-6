@@ -22,6 +22,7 @@ public class CreateEmpForm {
     private String email;
     
     @NotEmpty
+    @Size(min = 6, max = 12)
     private String password;
     
     @NotEmpty

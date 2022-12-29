@@ -16,7 +16,7 @@
           <form:hidden path="token" value="${resetForm.token}" />
 
           <div class="col-12">
-            <label for="email" class="form-label">Password <span
+            <label for="email" class="form-label">New Password <span
               class="text-danger">*</span></label>
             <form:input type="password" path="password" name="password"
               id="password" placeholder="" class="form-control" />
@@ -31,10 +31,11 @@
               placeholder="" id="confirm_password" class="form-control" />
             <form:errors path="confirm_password"
               class="fadeIn fourth text-danger" />
+            <c:if test="${not empty errorMsg }">
+              <div class="fadeIn fourth text-danger">${errorMsg }</div>
+            </c:if>
+
           </div>
-          <c:if test="${not empty errorMsg }">
-            <div class="fadeIn fourth text-danger">${errorMsg }</div>
-          </c:if>
 
           <div class="col-12 d-grid text-center my-4">
             <button class="btn btn-primary" type="submit">Change</button>

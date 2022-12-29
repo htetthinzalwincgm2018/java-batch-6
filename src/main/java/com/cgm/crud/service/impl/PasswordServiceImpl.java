@@ -4,12 +4,15 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cgm.crud.common.Constant;
 import com.cgm.crud.common.TokenGenerator;
+import com.cgm.crud.dao.EmployeeDao;
 import com.cgm.crud.dao.PasswordDao;
+import com.cgm.crud.entity.Employee;
 import com.cgm.crud.entity.PasswordReset;
 import com.cgm.crud.form.ResetForm;
 import com.cgm.crud.service.PasswordService;
@@ -22,6 +25,12 @@ public class PasswordServiceImpl implements PasswordService {
 
     @Autowired
     private PasswordDao passwordDao;
+    
+    @Autowired
+    private EmployeeDao employeeDao;
+ 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public ResetForm createResetToken(String email) {
@@ -50,6 +59,29 @@ public class PasswordServiceImpl implements PasswordService {
         passwordDao.createToken(this.getPasswordToken(resetForm));
 
         return resetForm;
+    }
+
+    @Override
+    public ResetForm getDataByToken(String token) {
+        ResetForm reset = new ResetForm(passwordDao.dbGetDataByToken(token));
+
+        return reset;
+    }
+    
+    public void deleteToken(String email) {
+        passwordDao.deleteToken(email);
+    }
+
+    @Override
+    public void updatePassword(ResetForm resetForm) {
+        resetForm.setPassword(passwordEncoder.encode(resetForm.getPassword()));
+
+        String email = resetForm.getEmail();
+        Employee emp = employeeDao.findByEmail(email);
+
+        emp.setPassword(resetForm.getPassword());
+
+        employeeDao.updateEmp(emp);
     }
 
     private PasswordReset getPasswordToken(ResetForm resetForm) {

@@ -40,4 +40,14 @@ public class PasswordDaoImpl implements PasswordDao {
     public void createToken(PasswordReset pswToken) {
         sessionFactory.getCurrentSession().save(pswToken);
     }
+
+    @SuppressWarnings("rawtypes")
+    @Override
+    public PasswordReset dbGetDataByToken(String token) {
+        String query = "SELECT pw FROM PasswordReset pw WHERE pw.token = :token";
+        Query queryToken = this.sessionFactory.getCurrentSession().createQuery(query);
+        queryToken.setParameter("token", token);
+        PasswordReset passwordReset = (PasswordReset) queryToken.uniqueResult();
+        return passwordReset;
+    }
 }
