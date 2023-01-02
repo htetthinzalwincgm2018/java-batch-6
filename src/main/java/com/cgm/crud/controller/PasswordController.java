@@ -85,6 +85,7 @@ public class PasswordController {
     @RequestMapping(value = "/actionPasswordReset/{token}", method = RequestMethod.GET)
     public ModelAndView showResetPasswordForm(@PathVariable String token) {
         ModelAndView mv = new ModelAndView("404");
+
         ResetForm resetForm = passwordService.getDataByToken(token);
 
         if (resetForm == null) {

@@ -25,10 +25,10 @@ public class PasswordServiceImpl implements PasswordService {
 
     @Autowired
     private PasswordDao passwordDao;
-    
+
     @Autowired
     private EmployeeDao employeeDao;
- 
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -63,11 +63,15 @@ public class PasswordServiceImpl implements PasswordService {
 
     @Override
     public ResetForm getDataByToken(String token) {
-        ResetForm reset = new ResetForm(passwordDao.dbGetDataByToken(token));
+        PasswordReset pw = passwordDao.dbGetDataByToken(token);
+        if (pw == null) {
+            return null;
+        }
 
+        ResetForm reset = new ResetForm(pw);
         return reset;
     }
-    
+
     public void deleteToken(String email) {
         passwordDao.deleteToken(email);
     }
