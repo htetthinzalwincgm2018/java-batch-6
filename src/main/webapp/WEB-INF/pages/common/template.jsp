@@ -14,7 +14,8 @@
 <script src="${url_jqlib}"></script>
 <script src="${url_jblib}"></script>
 
-<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />"
+<link rel="stylesheet"
+  href="<c:url value="/resources/css/bootstrap.min.css" />"
   type="text/css" />
 
 </head>
@@ -30,5 +31,5 @@
   <tiles:insertAttribute name="footer" />
 
 </body>
-
+<tiles:insertAttribute name="javascript" ignore="true" />
 </html>

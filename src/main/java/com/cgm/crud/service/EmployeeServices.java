@@ -1,6 +1,11 @@
 package com.cgm.crud.service;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cgm.crud.dto.EmployeeDto;
 import com.cgm.crud.entity.Employee;
@@ -24,4 +29,9 @@ public interface EmployeeServices {
 
     // get employee by email
     public EmployeeDto findByEmail(String email);
+
+    public void doDownloadAllEmp(HttpServletResponse response) throws IOException;
+
+    public String doImportEmp(MultipartFile file) throws IOException;
+
 }
