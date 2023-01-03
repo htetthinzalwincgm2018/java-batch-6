@@ -85,8 +85,8 @@
         <!-- annotated classes -->
         <property name="annotatedClasses">
             <list>
-                <value>com.cgm.crud.entity.Employee</value>
-                <value>com.cgm.crud.entity.PasswordReset</value>
+                <value>com.cgm.crud.persistence.entity.Employee</value>
+                <value>com.cgm.crud.persistence.entity.PasswordReset</value>
             </list>
         </property>
     </bean>
